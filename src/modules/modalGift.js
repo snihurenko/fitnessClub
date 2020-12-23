@@ -18,7 +18,6 @@ const modalGift = () => {
                 || target.classList.contains('close-btn')) {
                     
             form.style.display = 'none';
-            document.querySelector('.fixed-gift').style.display = 'block';
         }
     });
 
