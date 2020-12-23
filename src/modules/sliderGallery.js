@@ -3,8 +3,6 @@ const sliderGallery = () => {
         dot = document.querySelectorAll('.slider-dots'),
         slider = document.querySelector('.gallery-slider');
 
-    console.log(dot);
-
     let currentSlide = 0,
         interval;
 
@@ -37,7 +35,7 @@ const sliderGallery = () => {
     slider.addEventListener('click', event => {
         event.preventDefault();
         const target = event.target;
-        console.log(target);
+        //console.log(target);
 
         if (!target.matches('.slider-arrow, .slider-dots')) {
             return;

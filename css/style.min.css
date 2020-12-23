@@ -1540,14 +1540,17 @@ nav.popup-menu .close-menu-btn img {
     display: flex;
     margin: 0 auto;
     padding-left: 15px;
-    padding-right: 15px
+    padding-right: 15px;
+    position: relative;
 }
 
 .services-slider .slide {
     text-align: center;
     margin-right: 6px;
     margin-left: 6px;
-    width: 210px
+    width: 210px;
+    /*!*/
+    flex: 0 0 25%;
 }
 
 .services-slider .slide img {
@@ -1580,7 +1583,7 @@ nav.popup-menu .close-menu-btn img {
     cursor: pointer
 }
 
-.services-slider .slider-arrow span {
+.services-slider .slider-arrow.prev, .services-slider .slider-arrow.next{
     display: block;
     width: 36px;
     height: 37px;
@@ -1591,10 +1594,16 @@ nav.popup-menu .close-menu-btn img {
 }
 
 .services-slider .slider-arrow.prev {
+    background-image:url(../images/arrow-left.png);
+    background-repeat: no-repeat;
+    background-position:40% 50%;
     left: 2px;
 }
 
 .services-slider .slider-arrow.next {
+    background-image:url(../images/arrow-right.png);
+    background-repeat: no-repeat;
+    background-position:60% 50%;
     right: 2px
 }
 
