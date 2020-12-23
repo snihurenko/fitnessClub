@@ -1381,11 +1381,12 @@ nav.popup-menu .close-menu-btn img {
 }
 
 .slider-dots {
+    border: 5px solid blue;
     position: absolute;
     bottom: 50px;
     left: 50%;
     margin-left: -65px;
-    z-index: 1000
+    z-index: 1000;
 }
 
 .slider-dots li {
@@ -1590,7 +1591,7 @@ nav.popup-menu .close-menu-btn img {
 }
 
 .services-slider .slider-arrow.prev {
-    left: 2px
+    left: 2px;
 }
 
 .services-slider .slider-arrow.next {
@@ -1610,12 +1611,13 @@ nav.popup-menu .close-menu-btn img {
     padding-right: 75px;
     max-width: 900px;
     margin: 0 auto;
-    text-align: center
+    text-align: center;
+    position: relative;
 }
 
-#gallery .gallery-slider .slide {
+#gallery .gallery-slider .gallery-slide {
     margin: 0 auto !important;
-    width: 100%
+    width: 100%;
 }
 
 #gallery .gallery-slider .slider-arrow {
@@ -1626,7 +1628,7 @@ nav.popup-menu .close-menu-btn img {
     cursor: pointer
 }
 
-#gallery .gallery-slider .slider-arrow span {
+#gallery .gallery-slider .slider-arrow.prev, #gallery .gallery-slider .slider-arrow.next{
     display: block;
     width: 36px;
     height: 37px;
@@ -1637,17 +1639,60 @@ nav.popup-menu .close-menu-btn img {
 }
 
 #gallery .gallery-slider .slider-arrow.prev {
+    background-image:url(../images/arrow-left.png);
+    background-repeat: no-repeat;
+    background-position:40% 50%;
     left: 0
 }
 
 #gallery .gallery-slider .slider-arrow.next {
+    background-image:url(../images/arrow-right.png);
+    background-repeat: no-repeat;
+    background-position:60% 50%;
     right: 0
 }
 
+#gallery .gallery-slider .slider-dots-container {
+    position:absolute;
+    bottom:20px;
+    width:100%;
+    margin:20px auto 0;
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    z-index:5;
+}
+
 #gallery .gallery-slider .slider-dots {
-    left: 50%;
-    margin-left: -65px;
-    bottom: 5%
+    display:flex;
+    justify-content:center;
+    left: 60%;
+    bottom: 5%;
+    border: none;
+    position: relative;
+    width: 22px;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 2px;
+}
+
+#gallery .gallery-slider .gallery-dot-active{
+    background-color:#ffd11a;
+    -webkit-transform:scale(1.2);
+    transform:scale(1.5);
+    transition: background-color 1s;
+}
+
+.gallery-slide{
+    display: none;
+    visibility: hidden;
+}
+
+.gallery-slide-active{
+    display: block;
+    -webkit-transition:opacity .5s;
+    transition:opacity .5s;
+    visibility: visible;
 }
 
 #cards {
@@ -2460,11 +2505,6 @@ p.personal-data input[type=checkbox]:checked+label:before {
     #gallery .gallery-slider {
         padding-left: 10px;
         padding-right: 10px
-    }
-
-    #gallery .gallery-slider .slider-arrow.next,
-    #gallery .gallery-slider .slider-arrow.prev {
-        display: none !important
     }
 
     #gallery .gallery-slider .slider-dots {

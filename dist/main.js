@@ -94,7 +94,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/dropdownMenu */ \"./src/modules/dropdownMenu.js\");\n/* harmony import */ var _modules_modalVisitForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/modalVisitForm */ \"./src/modules/modalVisitForm.js\");\n/* harmony import */ var _modules_modalCallbackForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/modalCallbackForm */ \"./src/modules/modalCallbackForm.js\");\n/* harmony import */ var _modules_modalGift__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/modalGift */ \"./src/modules/modalGift.js\");\n/* harmony import */ var _modules_mainPageSlider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/mainPageSlider */ \"./src/modules/mainPageSlider.js\");\n\n\n\n\n\n\n\nObject(_modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\nObject(_modules_modalVisitForm__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\nObject(_modules_modalCallbackForm__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\nObject(_modules_modalGift__WEBPACK_IMPORTED_MODULE_3__[\"default\"])();\nObject(_modules_mainPageSlider__WEBPACK_IMPORTED_MODULE_4__[\"default\"])();\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/dropdownMenu */ \"./src/modules/dropdownMenu.js\");\n/* harmony import */ var _modules_modalVisitForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/modalVisitForm */ \"./src/modules/modalVisitForm.js\");\n/* harmony import */ var _modules_modalCallbackForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/modalCallbackForm */ \"./src/modules/modalCallbackForm.js\");\n/* harmony import */ var _modules_modalGift__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/modalGift */ \"./src/modules/modalGift.js\");\n/* harmony import */ var _modules_sliderMainPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/sliderMainPage */ \"./src/modules/sliderMainPage.js\");\n/* harmony import */ var _modules_sliderGallery__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/sliderGallery */ \"./src/modules/sliderGallery.js\");\n\n\n\n\n\n\n\n\nObject(_modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\nObject(_modules_modalVisitForm__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\nObject(_modules_modalCallbackForm__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\nObject(_modules_modalGift__WEBPACK_IMPORTED_MODULE_3__[\"default\"])();\nObject(_modules_sliderMainPage__WEBPACK_IMPORTED_MODULE_4__[\"default\"])();\nObject(_modules_sliderGallery__WEBPACK_IMPORTED_MODULE_5__[\"showDots\"])();\nObject(_modules_sliderGallery__WEBPACK_IMPORTED_MODULE_5__[\"sliderGallery\"])();\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
@@ -107,18 +107,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mod
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\nvar dropdownMenu = function dropdownMenu() {\n  var clubsDropdown = document.getElementById('clubs-dropdown');\n  document.addEventListener('click', function (event) {\n    if (event.target.matches('#clubs-btn') && clubsDropdown.style.display === 'none') {\n      clubsDropdown.style.display = 'block';\n    } else {\n      clubsDropdown.style.display = 'none';\n    }\n  });\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (dropdownMenu);\n\n//# sourceURL=webpack:///./src/modules/dropdownMenu.js?");
-
-/***/ }),
-
-/***/ "./src/modules/mainPageSlider.js":
-/*!***************************************!*\
-  !*** ./src/modules/mainPageSlider.js ***!
-  \***************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nvar mainPageSlider = function mainPageSlider() {\n  var slider = document.querySelector('.main-slider'),\n      slide = slider.querySelectorAll('.slide');\n  var slideIndex = 0;\n\n  var carousel = function carousel() {\n    slide[slideIndex].style.display = \"none\";\n    slideIndex++;\n\n    if (slideIndex >= slide.length) {\n      slideIndex = 0;\n    }\n\n    slide[slideIndex].style.display = \"block\";\n  };\n\n  setInterval(carousel, 3000);\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (mainPageSlider);\n\n//# sourceURL=webpack:///./src/modules/mainPageSlider.js?");
 
 /***/ }),
 
@@ -155,6 +143,30 @@ eval("__webpack_require__.r(__webpack_exports__);\nvar modalGift = function moda
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\nvar modalVisitForm = function modalVisitForm() {\n  var form = document.getElementById('free_visit_form');\n  document.addEventListener('click', function (event) {\n    var target = event.target;\n\n    if (target.closest('.open-popup')) {\n      form.style.display = 'block';\n    }\n  });\n  form.addEventListener('click', function (event) {\n    var target = event.target;\n\n    if (target.classList.contains('close_icon') || !target.closest('.form-content')) {\n      form.style.display = 'none';\n    }\n  });\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (modalVisitForm);\n\n//# sourceURL=webpack:///./src/modules/modalVisitForm.js?");
+
+/***/ }),
+
+/***/ "./src/modules/sliderGallery.js":
+/*!**************************************!*\
+  !*** ./src/modules/sliderGallery.js ***!
+  \**************************************/
+/*! exports provided: sliderGallery, showDots */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"sliderGallery\", function() { return sliderGallery; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"showDots\", function() { return showDots; });\nvar sliderGallery = function sliderGallery() {\n  var slide = document.querySelectorAll('.gallery-slide'),\n      dot = document.querySelectorAll('.slider-dots'),\n      slider = document.querySelector('.gallery-slider');\n  console.log(dot);\n  var currentSlide = 0,\n      interval;\n\n  var prevSlide = function prevSlide(elem, index, strClass) {\n    elem[index].classList.remove(strClass);\n  };\n\n  var nextSlide = function nextSlide(elem, index, strClass) {\n    elem[index].classList.add(strClass);\n  };\n\n  var autoPlaySlider = function autoPlaySlider() {\n    prevSlide(slide, currentSlide, 'gallery-slide-active');\n    prevSlide(dot, currentSlide, 'gallery-dot-active');\n    currentSlide++;\n\n    if (currentSlide >= slide.length) {\n      currentSlide = 0;\n    }\n\n    nextSlide(slide, currentSlide, 'gallery-slide-active');\n    nextSlide(dot, currentSlide, 'gallery-dot-active');\n  };\n\n  var startSlide = function startSlide() {\n    var time = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 3000;\n    interval = setInterval(autoPlaySlider, time);\n  };\n\n  var stopSlide = function stopSlide() {\n    clearInterval(interval);\n  };\n\n  slider.addEventListener('click', function (event) {\n    event.preventDefault();\n    var target = event.target;\n    console.log(target);\n\n    if (!target.matches('.slider-arrow, .slider-dots')) {\n      return;\n    }\n\n    prevSlide(slide, currentSlide, 'gallery-slide-active');\n    prevSlide(dot, currentSlide, 'gallery-dot-active');\n\n    if (target.matches('#arrow-right')) {\n      currentSlide++;\n    }\n\n    if (target.matches('#arrow-left')) {\n      currentSlide--;\n    }\n\n    if (target.closest('.slider-dots')) {\n      dot.forEach(function (elem, index) {\n        if (elem === target) {\n          currentSlide = index;\n        }\n      });\n    }\n\n    if (currentSlide >= slide.length) {\n      currentSlide = 0;\n    }\n\n    if (currentSlide < 0) {\n      currentSlide = slide.length - 1;\n    }\n\n    nextSlide(slide, currentSlide, 'gallery-slide-active');\n    nextSlide(dot, currentSlide, 'gallery-dot-active');\n  });\n  slider.addEventListener('mouseover', function (event) {\n    if (event.target.matches('.slider-arrow') || event.target.matches('.slider-dots')) {\n      stopSlide();\n    }\n  });\n  slider.addEventListener('mouseout', function (event) {\n    if (event.target.matches('.slider-arrow') || event.target.matches('.slider-dots')) {\n      startSlide();\n    }\n  });\n  startSlide(3000);\n};\n\nvar showDots = function showDots() {\n  var dotsContainer = document.querySelector('.slider-dots-container'),\n      slide = document.querySelectorAll('.gallery-slide');\n\n  for (var i = 0; i < slide.length; i++) {\n    var dot = document.createElement('li');\n    dot.classList.add('slider-dots');\n    dotsContainer.append(dot);\n  }\n\n  var firstDot = document.querySelector('.slider-dots');\n  firstDot.classList.add('gallery-dot-active');\n};\n\n\n\n//# sourceURL=webpack:///./src/modules/sliderGallery.js?");
+
+/***/ }),
+
+/***/ "./src/modules/sliderMainPage.js":
+/*!***************************************!*\
+  !*** ./src/modules/sliderMainPage.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nvar sliderMainPage = function sliderMainPage() {\n  var slider = document.querySelector('.main-slider'),\n      slide = slider.querySelectorAll('.slide');\n  var slideIndex = 0;\n\n  var carousel = function carousel() {\n    slide[slideIndex].style.display = \"none\";\n    slideIndex++;\n\n    if (slideIndex >= slide.length) {\n      slideIndex = 0;\n    }\n\n    slide[slideIndex].style.display = \"block\";\n  };\n\n  setInterval(carousel, 3000);\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (sliderMainPage);\n\n//# sourceURL=webpack:///./src/modules/sliderMainPage.js?");
 
 /***/ })
 

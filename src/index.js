@@ -4,10 +4,15 @@ import dropdownMenu from './modules/dropdownMenu';
 import modalVisitForm from './modules/modalVisitForm';
 import modalCallBackForm from './modules/modalCallbackForm';
 import modalGift from './modules/modalGift';
-import mainPageSlider from './modules/mainPageSlider';
+import sliderMainPage from './modules/sliderMainPage';
+import { sliderGallery, showDots } from './modules/sliderGallery';
 
 dropdownMenu();
+
 modalVisitForm();
 modalCallBackForm();
 modalGift();
-mainPageSlider();
+
+sliderMainPage();
+showDots();
+sliderGallery();

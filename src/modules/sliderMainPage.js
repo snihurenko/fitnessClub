@@ -1,4 +1,4 @@
-const mainPageSlider = () => {
+const sliderMainPage = () => {
     const slider = document.querySelector('.main-slider'),
         slide = slider.querySelectorAll('.slide');
 
@@ -18,4 +18,4 @@ const mainPageSlider = () => {
     setInterval(carousel, 3000);
 };
 
-export default mainPageSlider;
+export default sliderMainPage;
