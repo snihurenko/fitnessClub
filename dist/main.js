@@ -94,7 +94,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/dropdownMenu */ \"./src/modules/dropdownMenu.js\");\n/* harmony import */ var _modules_modalVisitForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/modalVisitForm */ \"./src/modules/modalVisitForm.js\");\n\n\n\n\nObject(_modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\nObject(_modules_modalVisitForm__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/dropdownMenu */ \"./src/modules/dropdownMenu.js\");\n/* harmony import */ var _modules_modalVisitForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/modalVisitForm */ \"./src/modules/modalVisitForm.js\");\n/* harmony import */ var _modules_modalCallbackForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/modalCallbackForm */ \"./src/modules/modalCallbackForm.js\");\n/* harmony import */ var _modules_modalGift__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/modalGift */ \"./src/modules/modalGift.js\");\n/* harmony import */ var _modules_mainPageSlider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/mainPageSlider */ \"./src/modules/mainPageSlider.js\");\n\n\n\n\n\n\n\nObject(_modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\nObject(_modules_modalVisitForm__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\nObject(_modules_modalCallbackForm__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\nObject(_modules_modalGift__WEBPACK_IMPORTED_MODULE_3__[\"default\"])();\nObject(_modules_mainPageSlider__WEBPACK_IMPORTED_MODULE_4__[\"default\"])();\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
@@ -110,6 +110,42 @@ eval("__webpack_require__.r(__webpack_exports__);\nvar dropdownMenu = function d
 
 /***/ }),
 
+/***/ "./src/modules/mainPageSlider.js":
+/*!***************************************!*\
+  !*** ./src/modules/mainPageSlider.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nvar mainPageSlider = function mainPageSlider() {\n  var slider = document.querySelector('.main-slider'),\n      slide = slider.querySelectorAll('.slide');\n  var slideIndex = 0;\n\n  var carousel = function carousel() {\n    slide[slideIndex].style.display = \"none\";\n    slideIndex++;\n\n    if (slideIndex >= slide.length) {\n      slideIndex = 0;\n    }\n\n    slide[slideIndex].style.display = \"block\";\n  };\n\n  setInterval(carousel, 3000);\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (mainPageSlider);\n\n//# sourceURL=webpack:///./src/modules/mainPageSlider.js?");
+
+/***/ }),
+
+/***/ "./src/modules/modalCallbackForm.js":
+/*!******************************************!*\
+  !*** ./src/modules/modalCallbackForm.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nvar modalCallBackForm = function modalCallBackForm() {\n  var form = document.getElementById('callback_form');\n  document.addEventListener('click', function (event) {\n    var target = event.target;\n\n    if (target.closest('.callback-btn')) {\n      form.style.display = 'block';\n    }\n  });\n  form.addEventListener('click', function (event) {\n    var target = event.target;\n\n    if (target.classList.contains('close_icon') || !target.closest('.form-content')) {\n      form.style.display = 'none';\n    }\n  });\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (modalCallBackForm);\n\n//# sourceURL=webpack:///./src/modules/modalCallbackForm.js?");
+
+/***/ }),
+
+/***/ "./src/modules/modalGift.js":
+/*!**********************************!*\
+  !*** ./src/modules/modalGift.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nvar modalGift = function modalGift() {\n  var form = document.getElementById('gift');\n  document.addEventListener('click', function (event) {\n    var target = event.target;\n\n    if (target.closest('.fixed-gift')) {\n      form.style.display = 'block';\n      document.querySelector('.fixed-gift').style.display = 'none';\n    }\n  });\n  form.addEventListener('click', function (event) {\n    var target = event.target;\n\n    if (target.classList.contains('close_icon') || !target.closest('.form-content') || target.classList.contains('close-btn')) {\n      form.style.display = 'none';\n      document.querySelector('.fixed-gift').style.display = 'block';\n    }\n  });\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (modalGift);\n\n//# sourceURL=webpack:///./src/modules/modalGift.js?");
+
+/***/ }),
+
 /***/ "./src/modules/modalVisitForm.js":
 /*!***************************************!*\
   !*** ./src/modules/modalVisitForm.js ***!
@@ -118,7 +154,7 @@ eval("__webpack_require__.r(__webpack_exports__);\nvar dropdownMenu = function d
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nvar modalVisitForm = function modalVisitForm() {\n  var form = document.getElementById('free_visit_form'),\n      btn = document.querySelector('.open-popup');\n  document.addEventListener('click', function (event) {\n    var target = event.target;\n\n    if (target.closest('.open-popup')) {\n      form.style.display = 'block';\n    }\n  });\n  form.addEventListener('click', function (event) {\n    var target = event.target;\n\n    if (target.classList.contains('close_icon') || !target.closest('.form-content')) {\n      form.style.display = 'none';\n    } // if (!target.closest('.form-content')) {\n    //     console.log('not form');\n    //     form.style.display = 'none';\n    // }\n\n  });\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (modalVisitForm);\n\n//# sourceURL=webpack:///./src/modules/modalVisitForm.js?");
+eval("__webpack_require__.r(__webpack_exports__);\nvar modalVisitForm = function modalVisitForm() {\n  var form = document.getElementById('free_visit_form');\n  document.addEventListener('click', function (event) {\n    var target = event.target;\n\n    if (target.closest('.open-popup')) {\n      form.style.display = 'block';\n    }\n  });\n  form.addEventListener('click', function (event) {\n    var target = event.target;\n\n    if (target.classList.contains('close_icon') || !target.closest('.form-content')) {\n      form.style.display = 'none';\n    }\n  });\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (modalVisitForm);\n\n//# sourceURL=webpack:///./src/modules/modalVisitForm.js?");
 
 /***/ })
 
