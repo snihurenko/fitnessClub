@@ -12,19 +12,20 @@ const burgerMenu = () => {
 
     menu.addEventListener('click', event => {
         const target = event.target;
-        if (target.closest('.close-menu-btn') || !target.matches('li>a') ) {
+        if (target.closest('.close-menu-btn') || target.matches('li>a') ) {
             menu.style.display = 'none';
         }
     });
 
     window.addEventListener('scroll', () => {
         const sticky = btn.offsetTop;
-
-        if (window.pageYOffset >= sticky) {
-            topMenu.classList.add('menu-fix')
-        } 
-        if (window.pageYOffset === 0) {
-            topMenu.classList.remove('menu-fix');
+        if (window.innerWidth < 768){
+            if (window.pageYOffset >= sticky) {
+                topMenu.classList.add('menu-fix')
+            } 
+            if (window.pageYOffset === 0) {
+                topMenu.classList.remove('menu-fix');
+            }
         }
     });
 
@@ -40,7 +41,7 @@ const burgerMenu = () => {
     const arrowToTop = document.getElementById('arrow-top');
 
     window.addEventListener('scroll', () => {
-        document.documentElement.scrollTop > 20 ? arrowToTop.hidden = false : arrowToTop.hidden = true;
+        document.documentElement.scrollTop > window.innerHeight ? arrowToTop.hidden = false : arrowToTop.hidden = true;
     });
 
     arrowToTop.addEventListener('click', () => {
