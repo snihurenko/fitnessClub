@@ -1542,15 +1542,15 @@ nav.popup-menu .close-menu-btn img {
     padding-left: 15px;
     padding-right: 15px;
     position: relative;
+    /* overflow: hidden; */
+    /* max-width: 90%; */
 }
 
 .services-slider .slide {
     text-align: center;
     margin-right: 6px;
     margin-left: 6px;
-    width: 210px;
-    /*!*/
-    flex: 0 0 25%;
+    width: 200px;
 }
 
 .services-slider .slide img {
@@ -1575,15 +1575,21 @@ nav.popup-menu .close-menu-btn img {
     margin: 0 auto
 }
 
-.services-slider .slider-arrow {
+#services .wrapper{
+    position: relative;
+    overflow: hidden;
+    
+}
+
+#services .slider-arrow {
     position: absolute;
-    top: 75px;
+    top: 50%;
     margin-top: -18px;
     z-index: 100;
     cursor: pointer
 }
 
-.services-slider .slider-arrow.prev, .services-slider .slider-arrow.next{
+#services .slider-arrow.prev, #services .slider-arrow.next{
     display: block;
     width: 36px;
     height: 37px;
@@ -1593,19 +1599,20 @@ nav.popup-menu .close-menu-btn img {
     padding-top: 11px
 }
 
-.services-slider .slider-arrow.prev {
+#services .slider-arrow.prev {
     background-image:url(../images/arrow-left.png);
     background-repeat: no-repeat;
-    background-position:40% 50%;
+    background-position: 40% 50%;
     left: 2px;
 }
 
-.services-slider .slider-arrow.next {
+#services .slider-arrow.next {
     background-image:url(../images/arrow-right.png);
     background-repeat: no-repeat;
-    background-position:60% 50%;
+    background-position: 60% 50%;
     right: 2px
 }
+
 
 #gallery {
     background-color: #fff
