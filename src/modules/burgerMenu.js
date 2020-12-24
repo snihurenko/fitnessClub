@@ -35,6 +35,17 @@ const burgerMenu = () => {
             btn.classList.add('hidden-large');
         }
     });
+
+    //arrow to top
+    const arrowToTop = document.getElementById('arrow-top');
+
+    window.addEventListener('scroll', () => {
+        document.documentElement.scrollTop > 20 ? arrowToTop.hidden = false : arrowToTop.hidden = true;
+    });
+
+    arrowToTop.addEventListener('click', () => {
+        window.scrollTo(pageXOffset, 0);
+    });
 };
 
 export default burgerMenu;
