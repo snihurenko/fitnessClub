@@ -58,7 +58,7 @@ const calculator = () => {
         priceTotal.textContent = priceList[period]
     };
 
-    document.addEventListener('click', event => {
+    form.addEventListener('click', event => {
         const target = event.target;
         getPeriod();
 
