@@ -8,6 +8,7 @@ import burgerMenu from './modules/burgerMenu';
 import sliderMainPage from './modules/sliderMainPage';
 import sliderServices from './modules/sliderServices';
 import { sliderGallery, showDots } from './modules/sliderGallery';
+import calculator from './modules/calculator';
 
 dropdownMenu();
 burgerMenu();
@@ -20,3 +21,5 @@ sliderMainPage();
 sliderServices();
 showDots();
 sliderGallery();
+
+calculator();
