@@ -24,7 +24,9 @@ sliderGallery();
 
 calculator();
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+const header = document.querySelector('.header-main');
+header.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
 
         document.querySelector(this.getAttribute('href')).scrollIntoView({
