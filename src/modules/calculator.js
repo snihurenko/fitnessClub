@@ -19,6 +19,19 @@ const calculator = () => {
     let period = 1;
     let priceList = [];
 
+    const recalculateNewPeriod = (target) => {
+        target.previousElementSibling.checked = true;
+        applyDiscount();
+        changePrice(priceList, period);
+    };
+
+    const recalculateNewClub = (target) => {
+        target.previousElementSibling.checked = true;
+        getClubChecked();
+        applyDiscount();
+        changePrice(priceList, period);
+    };
+
     const getClubChecked = () => {
         const clubName = document.getElementsByName('club-name');
             if (clubName[0].checked){
@@ -35,28 +48,20 @@ const calculator = () => {
 
             const target = event.target;
             if (target.previousElementSibling.value === '1'){
-                target.previousElementSibling.checked = true;
                 period = '1';
-                applyDiscount();
-                changePrice(priceList, period);
+                recalculateNewPeriod(target);
             }
             if (target.previousElementSibling.value === '6'){
-                target.previousElementSibling.checked = true;
                 period = '6';
-                applyDiscount();
-                changePrice(priceList, period);
+                recalculateNewPeriod(target);
             }
             if (target.previousElementSibling.value === '9'){
-                target.previousElementSibling.checked = true;
                 period = '9';
-                applyDiscount();
-                changePrice(priceList, period);
+                recalculateNewPeriod(target);
             }
             if (target.previousElementSibling.value === '12'){
-                target.previousElementSibling.checked = true;
                 period = '12';
-                applyDiscount();
-                changePrice(priceList, period);
+                recalculateNewPeriod(target);
             }
         });
         return period
@@ -71,15 +76,11 @@ const calculator = () => {
         getPeriod();
 
         if(target.previousElementSibling.value === 'schelkovo'){
-            target.previousElementSibling.checked = true;
-            applyDiscount();
-            changePrice(priceList, period);
+            recalculateNewClub(target);
         }
 
         if(target.previousElementSibling.value === 'mozaika'){
-            target.previousElementSibling.checked = true;
-            applyDiscount();
-            changePrice(priceList, period);
+            recalculateNewClub(target);
         }
     });
 
