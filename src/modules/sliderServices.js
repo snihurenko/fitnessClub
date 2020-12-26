@@ -1,4 +1,4 @@
-import { EventEmitter } from "events";
+//import { EventEmitter } from "events";
 
 const sliderServices = () => {
     const slider = document.querySelector('.services-slider'),
@@ -13,7 +13,6 @@ const sliderServices = () => {
     });
 
     document.addEventListener('click', event => {
-        event.preventDefault();
         const target = event.target;
 
         if (!target.matches('.slider-arrow')) {
@@ -21,6 +20,7 @@ const sliderServices = () => {
         }
 
         if (target.matches('#serv-arrow-right')) {
+            event.preventDefault();
             currentSlide++;
             if (currentSlide >= slide.length - slidesToShow) {
                 currentSlide = 0;
@@ -29,6 +29,7 @@ const sliderServices = () => {
         }
 
         if (target.matches('#serv-arrow-left')) {
+            event.preventDefault();
             currentSlide--;
             if (currentSlide < 0) {
                 currentSlide = slide.length - slidesToShow;

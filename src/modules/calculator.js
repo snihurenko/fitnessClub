@@ -20,13 +20,13 @@ const calculator = () => {
     let priceList = [];
 
     const recalculateNewPeriod = (target) => {
-        target.previousElementSibling.checked = true;
+        target.checked = true;       
         applyDiscount();
         changePrice(priceList, period);
     };
 
     const recalculateNewClub = (target) => {
-        target.previousElementSibling.checked = true;
+        target.checked = true;
         getClubChecked();
         applyDiscount();
         changePrice(priceList, period);
@@ -47,19 +47,20 @@ const calculator = () => {
             getClubChecked();
 
             const target = event.target;
-            if (target.previousElementSibling.value === '1'){
+            
+            if (target.value === '1'){
                 period = '1';
                 recalculateNewPeriod(target);
             }
-            if (target.previousElementSibling.value === '6'){
+            if (target.value === '6'){
                 period = '6';
                 recalculateNewPeriod(target);
             }
-            if (target.previousElementSibling.value === '9'){
+            if (target.value === '9'){
                 period = '9';
                 recalculateNewPeriod(target);
             }
-            if (target.previousElementSibling.value === '12'){
+            if (target.value === '12'){
                 period = '12';
                 recalculateNewPeriod(target);
             }
@@ -75,11 +76,11 @@ const calculator = () => {
         const target = event.target;
         getPeriod();
 
-        if(target.previousElementSibling.value === 'schelkovo'){
+        if(target.value === 'schelkovo'){
             recalculateNewClub(target);
         }
 
-        if(target.previousElementSibling.value === 'mozaika'){
+        if(target.value === 'mozaika'){
             recalculateNewClub(target);
         }
     });
@@ -94,7 +95,6 @@ const calculator = () => {
             }
         }
     };
-
     promocode.addEventListener('change', () => {
         applyDiscount();
         changePrice(priceList, period);

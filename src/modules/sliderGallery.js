@@ -16,9 +16,9 @@ const sliderGallery = () => {
     const autoPlaySlider = () => {
         prevSlide(slide, currentSlide, 'gallery-slide-active');
         prevSlide(dot, currentSlide, 'gallery-dot-active');      
-        currentSlide++;
-        if (currentSlide >= slide.length) {
-            currentSlide = 0;
+        currentSlide--;
+        if (currentSlide <= slide.length - (slide.length + 1)) {
+            currentSlide = slide.length -1;
         }
         nextSlide(slide, currentSlide, 'gallery-slide-active');
         nextSlide(dot, currentSlide, 'gallery-dot-active');
@@ -35,8 +35,7 @@ const sliderGallery = () => {
     slider.addEventListener('click', event => {
         event.preventDefault();
         const target = event.target;
-        //console.log(target);
-
+        
         if (!target.matches('.slider-arrow, .slider-dots')) {
             return;
         }
@@ -45,10 +44,10 @@ const sliderGallery = () => {
         prevSlide(dot, currentSlide, 'gallery-dot-active');
 
         if (target.matches('#arrow-right')) {
-            currentSlide++;
+            currentSlide--;
         }
         if (target.matches('#arrow-left')) {
-            currentSlide--;
+            currentSlide++;
         }
         if (target.closest('.slider-dots')) {
             dot.forEach((elem, index) => {
@@ -94,8 +93,8 @@ const showDots = () => {
         dotsContainer.append(dot);
     }
 
-    const firstDot = document.querySelector('.slider-dots');
-    firstDot.classList.add('gallery-dot-active');
+    const firstDot = document.querySelectorAll('.slider-dots');
+    firstDot[slide.length - 1].classList.add('gallery-dot-active');
 };
 
 export { sliderGallery, showDots };

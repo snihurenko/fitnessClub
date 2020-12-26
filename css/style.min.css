@@ -1381,7 +1381,6 @@ nav.popup-menu .close-menu-btn img {
 }
 
 .slider-dots {
-    border: 5px solid blue;
     position: absolute;
     bottom: 50px;
     left: 50%;
@@ -1389,9 +1388,9 @@ nav.popup-menu .close-menu-btn img {
     z-index: 1000;
 }
 
-.slider-dots li {
+/* .slider-dots-container li {
     float: left
-}
+} */
 
 .slider-dots li button {
     width: 22px;
@@ -1672,14 +1671,17 @@ nav.popup-menu .close-menu-btn img {
     position:absolute;
     bottom:20px;
     width:100%;
-    margin:20px auto 0;
+    /* margin:20px auto 0; */
     display:-webkit-box;
     display:-ms-flexbox;
     display:flex;
+    /* flex-direction: row; */
     z-index:5;
 }
 
 #gallery .gallery-slider .slider-dots {
+    border: 5px solid red;
+    flex-direction: row;
     display:flex;
     justify-content:center;
     left: 60%;
