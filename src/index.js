@@ -10,8 +10,9 @@ import sliderServices from './modules/sliderServices';
 import { sliderGallery, showDots } from './modules/sliderGallery';
 import calculator from './modules/calculator';
 import sendForm from './modules/sendForm';
+import maskPhone from './modules/maskPhone';
 
-
+maskPhone('.form_phone', '+_(___) ___-__-__')
 dropdownMenu();
 burgerMenu();
 

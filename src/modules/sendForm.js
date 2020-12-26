@@ -35,7 +35,7 @@ const sendForm = () => {
         const statusMessage = document.createElement('div');
         statusMessage.style.color = '#fff'
         statusMessage.textContent = 'sending form'
-        console.log(statusMessage);
+        console.log(target);
         target.appendChild(statusMessage);
         //preloader(statusMessage);
 
@@ -89,11 +89,16 @@ const sendForm = () => {
     };
 
     document.addEventListener('submit', event => {
-        event.preventDefault();
+        //event.preventDefault();
         const target = event.target;
         console.log(target);
         
         if (target.matches('#form1') || target.matches('#form2') ){
+            console.log(target);
+            getDataForm(target)
+        }
+        if (target.matches('#footer_form') ){
+            console.log(target);
             getDataForm(target)
         }
     });
@@ -101,20 +106,22 @@ const sendForm = () => {
     
 
     
-    // document.addEventListener('input', event => {
-    //     const target = event.target;
-    //     if (target.closest('#form1') || target.closest('#form2') ){
-    //         validateInput(target);
-    //     }
-    // });
+    document.addEventListener('input', event => {
+        const target = event.target;
+        if (target.closest('#form1') || target.closest('#form2') 
+            || target.closest('#footer_form') || target.closest('#banner-form')
+        ){
+            validateInput(target);
+        }
+    });
 
     const validateInput = (target) => {
-        // if (target.matches('.form-phone')){
+        // if (target.matches('.form_phone')){
         //     target.value = target.value.replace(/[^\d\+]/g, '');
         // }
-        // if (target.matches('#form2-name') || target.matches('.form-name')){
-        //     target.value = target.value.replace(/[^а-яё\s]/ig, '');
-        // }
+        if (target.matches('.form_name')){
+            target.value = target.value.replace(/[^а-яё\s]/ig, '');
+        }
         // if (target.matches('#form2-message')){
         //     target.value = target.value.replace(/[^а-яё\s\!\?\.,]/ig, '');
         // }
