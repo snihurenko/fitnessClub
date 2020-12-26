@@ -201,13 +201,13 @@
     <div class="wrapper">
         <h2>Записаться на бесплатный&nbsp;визит</h2>
         <div class="form-wrapper">
-            <form name="banner-form" id="banner-form" action="#" method="post">
+            <form name="banner-form" id="banner-form">
                 <input type="hidden" name="form_name" value=" Записаться на визит">
                 <input name="name" type="text" class="form_name" required placeholder="Ваше имя...">
                 <input type="tel" name="phone" id="phone" class="form_phone" required placeholder="Ваш номер телефона...">
                 <button name="send" class="btn" type="submit">Записаться</button>
                 <p class="personal-data">
-                    <input type="checkbox" required id="check1"><label for="check1">Я согласен на обработку персональных
+                    <input type="checkbox" id="check1"><label for="check1">Я согласен на обработку персональных
                     данных</label>
                 </p>
             </form>
@@ -314,7 +314,7 @@
                 <img src="images/cards.png" alt="Клубные карты">
             </div>
             <div class="right">
-                <form action="" id="card_order">
+                <form id="card_order" name="card_order">
                     <div class="time">
                         <input id="m1" type="radio" name="card-type" value="1" checked>
                         <label for="m1">1 месяц</label>
@@ -343,7 +343,7 @@
                     </div>
                     </div>
                     <div class="price">
-                        <div class="price-message input-text"><input name="name" type="text" required
+                        <div class="price-message input-text"><input name="name" type="text"
                                                                     placeholder="Промокод" id="promocode"></div>
                         <div class="price-message">Цена:</div>
                         <div class="price-message" id="price-total">2999</div>
@@ -353,12 +353,13 @@
                     <p class="input-text"><input type="tel" name="phone" class="form_phone" id="callback_form-phone" required
                                                 placeholder="Ваш номер телефона..."></p>
                     <p class="personal-data">
-                        <input type="checkbox" required id="card_check"><label for="card_check">Я согласен на обработку
+                        <input type="checkbox" id="card_check"><label for="card_check">Я согласен на обработку
                         персональных данных</label>
                     </p>
                     <p class="submit">
                         <button type="submit" class="btn card-order-btn">Забронировать карту</button>
                     </p>
+                    
                 </form>
             </div>
         </div>
@@ -387,7 +388,7 @@
                 </div>
             </div>
             <div class="right">
-                <form action="" id="footer_form">
+                <form name="footer_form" id="footer_form">
                     <div class="content">
                         <div class="choose-club">
                             <h5>Выбрать клуб</h5>
@@ -453,20 +454,19 @@
             <img src="images/close-icon.png" alt="close" class="close_icon">
         </div>
         <div class="form-content">
-            <!-- <form name="callback-form" id="form1" action="#" method="post"> -->
             <form name="callback-form" id="form1" >
                 <h4>Обратный звонок</h4>
                 <input type="hidden" name="form_name" value=" Обратный звонок">
-                <!--  <input type="hidden" name="club" value="<?=$_GET['club-name']?>"> -->
+                <!-- <input type="hidden" name="club" value="<?=$_GET['club-name']?>"> -->
                 <p class="input-text"><input name="name" type="text" class="form_name" required placeholder="Ваше имя..."></p>
                 <p class="input-text"><input type="tel" name="phone" class="form_phone" id="callback_form1-phone" required
                                             placeholder="Ваш номер телефона..."></p>
-                <!-- <p class="personal-data">
-                    <input type="checkbox" required id="check"><label for="check">Я согласен на обработку <br>персональных
+                <p class="personal-data">
+                    <input type="checkbox" id="check"><label for="check">Я согласен на обработку <br>персональных
                     данных</label>
-                </p> -->
+                </p>
                 <button name="send1" class="btn btn-send" type="submit">Перезвоните мне</button>
-            </>
+            </form>
 
         </div>
     </div>
@@ -479,18 +479,18 @@
             <img src="images/close-icon.png" alt="close" class="close_icon">
         </div>
         <div class="form-content">
-            <form name="free-visit-form" id="form2" action="#" method="post">
+            <form name="free-visit-form" id="form2">
                 <h4>Записаться на визит</h4>
                 <input type="hidden" name="form_name" value=" Записаться на визит">
                 <p class="input-text"><input name="name" type="text" class="form_name" required placeholder="Ваше имя..."></p>
                 <p class="input-text"><input type="tel" name="phone" id="callback_form2-phone" class="form_phone" required
                                             placeholder="Ваш номер телефона..."></p>
+                <input name="send1" class="btn btn-send" type="submit"></input>
                 <p class="personal-data">
-                    <input type="checkbox" required id="check2"><label for="check2">Я согласен на обработку <br>персональных
+                    <input type="checkbox" id="check2"><label for="check2">Я согласен на обработку <br>персональных
                     данных</label>
 
                 </p>
-                <button name="send1" class="btn btn-send" type="submit">записаться</button>
             </form>
 
         </div>

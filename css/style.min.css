@@ -2318,6 +2318,45 @@ p.personal-data input[type=checkbox]:checked+label:before {
     margin-top: 30px
 }
 
+.statusMessage{
+    color: #fff;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+/*preloader for form submit*/
+.preloader {
+	display: inline-block;
+	transform: translate(-50%, -50%);
+    margin: 10px 0 10px 20px;
+}
+.preloader__bar {
+	display: inline-block;
+	width: 7px;
+	height: 20px;
+	background-color: #ffd11a;
+}
+.js--animate {
+	animation: scale 0.3s ease;
+}
+@keyframes scale {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.3);
+	}
+	60% {
+		transform: scale(1);
+	}
+	80% {
+		transform: scale(0.7);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
 @media only screen and (max-width:1199px) {
     .services-slider .slider-arrow.prev {
         left: 25px

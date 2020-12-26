@@ -1,62 +1,68 @@
 const sendForm = () => {
     const errorMessage = 'Что-то пошло не так ...',
         successMessage = 'Спасибо! Мы скоро с вами свяжемся!';
-    
-    // const preloader = (statusMessage) => {
-    
-    //     statusMessage.insertAdjacentHTML('afterend', `
-    //         <div class="preloader">
-    //             <div class="preloader__bar js--animate"  data-position="1"></div>
-    //             <div class="preloader__bar" data-position="2"></div>
-    //             <div class="preloader__bar" data-position="3"></div>
-    //         </div>
-    //     `);
 
-    //         const animation = () => {
-    //             let activeBar = document.querySelector('.preloader .js--animate');
-    //             if (activeBar) {
-    //                 let nextBar = activeBar.nextElementSibling;
-    //                 if (!nextBar) {
-    //                     const parent =  activeBar.parentElement;
-    //                     nextBar = parent.firstElementChild;
-    //                     activeBar.classList.remove('js--animate');
-    //                     nextBar.classList.add('js--animate');
-    //                 } 
-    //                 else {
-    //                     activeBar.classList.remove('js--animate');
-    //                     nextBar.classList.add('js--animate');
-    //                 }
-    //             }
-    //         }
-    //         setInterval(animation, 300);
-    // };
+    const thanksPopup = document.getElementById('thanks');
+    
+    const preloader = (statusMessage) => {
+    
+        statusMessage.insertAdjacentHTML('beforeend', `
+            <div class="preloader">
+                <div class="preloader__bar js--animate"  data-position="1"></div>
+                <div class="preloader__bar" data-position="2"></div>
+                <div class="preloader__bar" data-position="3"></div>
+            </div>
+        `);
+
+            const animation = () => {
+                let activeBar = document.querySelector('.preloader .js--animate');
+                if (activeBar) {
+                    let nextBar = activeBar.nextElementSibling;
+                    if (!nextBar) {
+                        const parent =  activeBar.parentElement;
+                        nextBar = parent.firstElementChild;
+                        activeBar.classList.remove('js--animate');
+                        nextBar.classList.add('js--animate');
+                    } 
+                    else {
+                        activeBar.classList.remove('js--animate');
+                        nextBar.classList.add('js--animate');
+                    }
+                }
+            }
+            setInterval(animation, 300);
+    };
 
     const getDataForm = (target) => {
         const statusMessage = document.createElement('div');
-        statusMessage.style.color = '#fff'
-        statusMessage.textContent = 'sending form'
-        console.log(target);
+        preloader(statusMessage);
+        statusMessage.classList.add('statusMessage');
         target.appendChild(statusMessage);
-        //preloader(statusMessage);
+        
 
         const formData = new FormData(target);
-        console.log(formData);
         let body = {};
         for (let val of formData.entries()){
             body[val[0]] = val[1]
         };
 
         const outputData = () => {
-            // const preloader = document.querySelector('.preloader');
-            // if (preloader) {
-            //     preloader.parentNode.removeChild(preloader);
-            // }
+            const preloader = document.querySelector('.preloader');
+            if (preloader) {
+                preloader.parentNode.removeChild(preloader);
+            }
 
-            statusMessage.textContent = successMessage;
-
-            setTimeout(() => {
-                statusMessage.textContent = '';
-            }, 3000);
+            thanksPopup.style.display = 'flex';
+            thanksPopup.addEventListener('click', event => {
+                const target = event.target;
+        
+                if (target.classList.contains('close_icon') 
+                    || !target.closest('.form-content')
+                    || target.classList.contains('close-btn')
+                ) {
+                    thanksPopup.style.display = 'none';
+                }
+            });
         };
 
         const errorData = (error) => {
@@ -89,27 +95,29 @@ const sendForm = () => {
     };
 
     document.addEventListener('submit', event => {
-        //event.preventDefault();
+        event.preventDefault();
         const target = event.target;
-        console.log(target);
-        
-        if (target.matches('#form1') || target.matches('#form2') ){
-            console.log(target);
-            getDataForm(target)
-        }
-        if (target.matches('#footer_form') ){
+        const bannerCheck = document.getElementById('check1');
+        const form1Check = document.getElementById('check');
+        const form2Check = document.getElementById('check2');
+        const cardCheck = document.getElementById('card_check');
+
+        if (target.matches('#form1') && form1Check.checked
+            || target.matches('#form2') && form2Check.checked 
+            || target.matches('#footer_form') && bannerCheck.checked 
+            || target.matches('#banner-form') && bannerCheck.checked
+            || target.matches('#card_order') && cardCheck.checked 
+        ){
             console.log(target);
             getDataForm(target)
         }
     });
 
-    
-
-    
     document.addEventListener('input', event => {
         const target = event.target;
         if (target.closest('#form1') || target.closest('#form2') 
             || target.closest('#footer_form') || target.closest('#banner-form')
+            || target.closest('#card_order')
         ){
             validateInput(target);
         }
