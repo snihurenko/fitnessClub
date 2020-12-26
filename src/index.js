@@ -9,6 +9,8 @@ import sliderMainPage from './modules/sliderMainPage';
 import sliderServices from './modules/sliderServices';
 import { sliderGallery, showDots } from './modules/sliderGallery';
 import calculator from './modules/calculator';
+import sendForm from './modules/sendForm';
+
 
 dropdownMenu();
 burgerMenu();
@@ -23,15 +25,16 @@ showDots();
 sliderGallery();
 
 calculator();
+sendForm();
 
+// const header = document.querySelector('.header-main');
+// header.querySelectorAll('a[href^="#"]').forEach(anchor => {
+//     anchor.addEventListener('click', function (e) {
 
-const header = document.querySelector('.header-main');
-header.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+//         document.querySelector(this.getAttribute('href')).scrollIntoView({
+//             behavior: 'smooth'
+//         });
+//     });
+// });
 
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
 
