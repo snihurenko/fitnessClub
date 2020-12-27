@@ -20,6 +20,10 @@ const sliderGallery = () => {
         if (currentSlide <= slide.length - (slide.length + 1)) {
             currentSlide = slide.length -1;
         }
+        // currentSlide++;
+        // if (currentSlide >= slide.length) {
+        //     currentSlide = 0;
+        // }
         nextSlide(slide, currentSlide, 'gallery-slide-active');
         nextSlide(dot, currentSlide, 'gallery-dot-active');
     };
@@ -80,21 +84,29 @@ const sliderGallery = () => {
         }
     });
 
-    startSlide(3000);
+    startSlide(5000);
 };
 
 const showDots = () => {
     const dotsContainer = document.querySelector('.slider-dots-container'),
         slide = document.querySelectorAll('.gallery-slide');
 
-    for (let i = 0; i < slide.length; i++) {
+    // for (let i = 0; i < slide.length; i++) {
+    //     const dot = document.createElement('li');
+    //     dot.classList.add('slider-dots');
+    //     dotsContainer.append(dot);
+    // }
+    for (let i = slide.length -1; i >= 0; i--) {
         const dot = document.createElement('li');
         dot.classList.add('slider-dots');
+        console.log(dot);
         dotsContainer.append(dot);
     }
 
     const firstDot = document.querySelectorAll('.slider-dots');
-    firstDot[slide.length - 1].classList.add('gallery-dot-active');
+    console.log(firstDot);
+    //firstDot[firstDot.length - 1].classList.add('gallery-dot-active');
+    firstDot[0].classList.add('gallery-dot-active');
 };
 
 export { sliderGallery, showDots };
