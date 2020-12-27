@@ -4,7 +4,7 @@ const modalCallBackForm = () => {
     document.addEventListener('click', event => {
         const target = event.target;
 
-        if (target.closest('.callback-btn') ){
+        if (target.closest('#modal-callback-btn') ){
             form.style.display = 'block'
         }         
     });

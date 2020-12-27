@@ -1,11 +1,10 @@
 const sendForm = () => {
     const errorMessage = 'Что-то пошло не так ...',
-        successMessage = 'Спасибо! Мы скоро с вами свяжемся!';
+        dataShareApproveMessage = 'Вы не приняли соглашение об обработке персональных данных';
 
     const thanksPopup = document.getElementById('thanks');
     
     const preloader = (statusMessage) => {
-    
         statusMessage.insertAdjacentHTML('beforeend', `
             <div class="preloader">
                 <div class="preloader__bar js--animate"  data-position="1"></div>
@@ -38,7 +37,6 @@ const sendForm = () => {
         preloader(statusMessage);
         statusMessage.classList.add('statusMessage');
         target.appendChild(statusMessage);
-        
 
         const formData = new FormData(target);
         let body = {};
@@ -55,7 +53,6 @@ const sendForm = () => {
             thanksPopup.style.display = 'flex';
             thanksPopup.addEventListener('click', event => {
                 const target = event.target;
-        
                 if (target.classList.contains('close_icon') 
                     || !target.closest('.form-content')
                     || target.classList.contains('close-btn')
@@ -101,15 +98,29 @@ const sendForm = () => {
         const form1Check = document.getElementById('check');
         const form2Check = document.getElementById('check2');
         const cardCheck = document.getElementById('card_check');
+        // const footerClub1 = document.getElementById('footer_leto_mozaika').checked;
+        // const footerClub2 = document.getElementById('footer_leto_schelkovo').checked;
+        // console.log(footerClub1);
+        //&& (footerClub1 || footerClub2)
 
         if (target.matches('#form1') && form1Check.checked
             || target.matches('#form2') && form2Check.checked 
-            || target.matches('#footer_form') && bannerCheck.checked 
+            || target.matches('#footer_form') 
             || target.matches('#banner-form') && bannerCheck.checked
             || target.matches('#card_order') && cardCheck.checked 
         ){
-            console.log(target);
+            const statusMessage = document.querySelector('#dataShare');
+            if (statusMessage) {
+                statusMessage.parentNode.removeChild(statusMessage);
+            }
             getDataForm(target)
+        } else {
+            const statusMessage = document.createElement('div');
+            statusMessage.classList.add('statusMessage');
+            statusMessage.id = 'dataShare';
+            statusMessage.style.color = 'red';
+            statusMessage.textContent = dataShareApproveMessage;
+            target.appendChild(statusMessage);
         }
     });
 
@@ -124,19 +135,12 @@ const sendForm = () => {
     });
 
     const validateInput = (target) => {
-        // if (target.matches('.form_phone')){
-        //     target.value = target.value.replace(/[^\d\+]/g, '');
-        // }
         if (target.matches('.form_name')){
             target.value = target.value.replace(/[^а-яё\s]/ig, '');
         }
-        // if (target.matches('#form2-message')){
-        //     target.value = target.value.replace(/[^а-яё\s\!\?\.,]/ig, '');
-        // }
     };
 
 };
-
 
 export default sendForm;
 
