@@ -1,9 +1,9 @@
-const sliderGallery = () => {
+const slider = () => {
     const slide = document.querySelectorAll('.gallery-slide'),
         dot = document.querySelectorAll('.slider-dots'),
         slider = document.querySelector('.gallery-slider');
 
-    let currentSlide = slide.length - 1,
+    let currentSlide = 0,
         interval;
 
     const prevSlide = (elem, index, strClass) => {
@@ -16,9 +16,13 @@ const sliderGallery = () => {
     const autoPlaySlider = () => {
         prevSlide(slide, currentSlide, 'gallery-slide-active');
         prevSlide(dot, currentSlide, 'gallery-dot-active');      
-        currentSlide--;
-        if (currentSlide <= slide.length - (slide.length + 1)) {
-            currentSlide = slide.length -1;
+        // currentSlide--;
+        // if (currentSlide <= slide.length - (slide.length + 1)) {
+        //     currentSlide = slide.length -1;
+        // }
+        currentSlide++;
+        if (currentSlide >= slide.length) {
+            currentSlide = 0;
         }
         nextSlide(slide, currentSlide, 'gallery-slide-active');
         nextSlide(dot, currentSlide, 'gallery-dot-active');
@@ -90,13 +94,12 @@ const showDots = () => {
     for (let i = 0; i < slide.length; i++) {
         const dot = document.createElement('li');
         dot.classList.add('slider-dots');
-        dotsContainer.append(dot);
+        dotsContainer.prepend(dot);
         console.log(dot);
     }
 
-    slide[slide.length - 1].classList.add('gallery-slide-active');
-    const firstDot = document.querySelectorAll('.slider-dots');
-    firstDot[firstDot.length - 1].classList.add('gallery-dot-active');
+    const firstDot = document.querySelector('.slider-dots');
+    firstDot.classList.add('gallery-dot-active');
 };
 
-export { sliderGallery, showDots };
+export { slider, showDots };
