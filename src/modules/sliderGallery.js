@@ -91,7 +91,6 @@ const showDots = () => {
         const dot = document.createElement('li');
         dot.classList.add('slider-dots');
         dotsContainer.append(dot);
-        console.log(dot);
     }
 
     slide[slide.length - 1].classList.add('gallery-slide-active');
