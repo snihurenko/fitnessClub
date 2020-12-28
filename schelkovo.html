@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;subset=cyrillic" rel="stylesheet">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.min.css">
-    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <!-- <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script> -->
 </head>
 <body>
 <header class="header-main">
@@ -21,8 +21,8 @@
                     </div>
                     <div class="club-select">
                         <div class="clubs-list">
-                            <p>Выбрать клуб</p>
-                            <ul>
+                            <p id="clubs-btn">Выбрать клуб</p>
+                            <ul id="clubs-dropdown">
                                 <li><a href="mozaika.html">Тело мозаика</a></li>
                                 <li><a href="schelkovo.html">Тело щелково</a></li>
                             </ul>
@@ -40,7 +40,7 @@
                             <span>Звоните круглосуточно!</span>
                             <p>+7 (800) 555-64-47</p>
                         </div>
-                        <button class="btn callback-btn" data-popup="#callback_form">Перезвоните мне</button>
+                        <button class="btn callback-btn" id="modal-callback-btn" data-popup="#callback_form">Перезвоните мне</button>
                     </div>
                 </div>
             </div>
@@ -75,7 +75,7 @@
         </ul>
     </nav>
     <div class="head-slider">
-        <div class="wrapper">
+        <div class="wrapper" style='border: 1px solid transparent'>
             <div class="main-slider">
                 <div class="slide">
                     <div class="slide-text">
@@ -168,7 +168,7 @@
             <div class="image">
                 <img src="images/leto-mozaika-bg.png" alt="">
                 <div class="club-head">
-                    <a href="mozaika.html"><h3>Тело Щелково</h3></a>
+                    <a href="schelkovo.html"><h3>Тело Щелково</h3></a>
                 </div>
             </div>
         </div>
@@ -297,7 +297,7 @@
 <section id="cards">
     <div class="wrapper">
         <h2>выбрать карту</h2>
-        <form action="" id="card_order">
+        <form id="card_order">
             <div class="cards-types">
                 <input id="t1" type="radio" name="card-type" value="1s" checked>
                 <label for="t1"><span class="long">1 месяц</span><br><span class="solo">- соло -</span><br><span
@@ -326,12 +326,12 @@
                 </div>
                 <div class="right">
                     <input type="hidden" name="form_name" value="Заказать карту">
-                    <p class="input-text"><input name="name" type="text" required placeholder="Ваше имя..."></p>
+                    <p class="input-text"><input name="name" class="form_name" type="text" required placeholder="Ваше имя..."></p>
                     <p class="input-text"><input type="tel" name="phone" id="callback_form-phone" required
-                                                 placeholder="Ваш номер телефона..."></p>
+                        class="form_phone" placeholder="Ваш номер телефона..."></p>
                     <div class="form-bottom">
                         <p class="personal-data">
-                            <input type="checkbox" required id="card_check"><label for="card_check">Я согласен на
+                            <input type="checkbox" id="card_check"><label for="card_check">Я согласен на
                             обработку персональных данных</label>
                         </p>
                         <p class="submit">
@@ -348,21 +348,25 @@
     <div class="gallery-bg">
         <div class="wrapper">
             <div class="gallery-slider">
-                <div class="slide">
+                <div class="gallery-slide">
                     <img src="images/gallery/photo1.jpg" alt="">
                 </div>
-                <div class="slide">
+                <div class="gallery-slide">
                     <img src="images/gallery/photo2.jpg" alt="">
                 </div>
-                <div class="slide">
+                <div class="gallery-slide">
                     <img src="images/gallery/photo3.jpg" alt="">
                 </div>
-                <div class="slide">
+                <div class="gallery-slide">
                     <img src="images/gallery/photo4.jpg" alt="">
                 </div>
-                <div class="slide">
+                <div class="gallery-slide">
                     <img src="images/gallery/photo5.jpg" alt="">
                 </div>
+
+                <a href="#" class="slider-arrow prev" id="arrow-left"></a>
+                <a href="#" class="slider-arrow next" id="arrow-right"></a>
+                <ul class="slider-dots-container">
             </div>
         </div>
     </div>
@@ -422,19 +426,21 @@
                 <p>Йога - идеальны не только физическая форма, но и эмоциональное состояние</p>
             </div>
         </div>
+        <a href="#" class="slider-arrow prev" id="serv-arrow-left"></a>
+        <a href="#" class="slider-arrow next" id="serv-arrow-right"></a>
     </div>
 </section>
 <section id="banner">
     <div class="wrapper">
         <h2>Записаться на бесплатный&nbsp;визит</h2>
         <div class="form-wrapper">
-            <form name="banner-form" id="banner-form" action="#" method="post">
+            <form name="banner-form" id="banner-form">
                 <input type="hidden" name="form_name" value=" Записаться на визит">
-                <input name="name" type="text" required placeholder="Ваше имя...">
-                <input type="tel" name="phone" id="phone" required placeholder="Ваш номер телефона...">
+                <input name="name" class="form_name" type="text" required placeholder="Ваше имя...">
+                <input type="tel" name="phone" class="form_phone" id="phone" required placeholder="Ваш номер телефона...">
                 <button name="send" class="btn" type="submit">Записаться</button>
                 <p class="personal-data">
-                    <input type="checkbox" required id="check1"><label for="check1">Я согласен на обработку персональных
+                    <input type="checkbox" id="check1"><label for="check1">Я согласен на обработку персональных
                     данных</label>
                 </p>
             </form>
@@ -442,10 +448,10 @@
         </div>
     </div>
 </section>
-<section id="map">
+<!-- <section id="map">
     <script type="text/javascript" charset="utf-8" async
             src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A2da5145ff380de99a25f589e0d812316606a9fe201dbd205afa77d6fe27ac94f&amp;width=100%25&amp;height=500&amp;lang=ru_RU&amp;=false"></script>
-</section>
+</section> -->
 <footer id="footer">
     <div class="wrapper">
         <div class="footer-top">
@@ -471,12 +477,12 @@
                 </div>
             </div>
             <div class="right">
-                <form action="#" id="footer_form">
+                <form name="footer_form" id="footer_form">
                     <div class="content">
                         <div class="choose-club">
                             <h5>Выбрать клуб</h5>
                             <div class="club">
-                                <input type="radio" id="footer_leto_mozaika" name="club-name" value="mozaika"><label
+                                <input type="radio" id="footer_leto_mozaika" name="club-name" value="mozaika" checked><label
                                     for="footer_leto_mozaika">
                                 <h6>Тело «Мозаика»</h6>
                                 <p>Россия, Москва, 7-я Кожуховская ул.,&nbsp;9</p>
@@ -494,7 +500,7 @@
                             <p>Единый телефон</p>
                             <p class="tel">+7 (800) 555-64-47</p>
                             <p class="input-text"><input type="tel" name="phone" id="callback_footer_form-phone"
-                                                         required="" placeholder="Ваш номер телефона..."></p>
+                                class="form_phone" required="" placeholder="Ваш номер телефона..."></p>
 
                             <button class="btn callback-btn" type="submit" data-popup="#callback_form">Перезвоните мне
                             </button>
@@ -524,7 +530,7 @@
         </div>
     </div>
 </footer>
-<div class="wrapper">
+<div class="wrapper" id="arrow-top">
     <a href="#" id="totop"><i class="fa fa-arrow-up" aria-hidden="true"></i>
     </a>
 </div>
@@ -536,15 +542,15 @@
             <img src="images/close-icon.png" alt="close" class="close_icon">
         </div>
         <div class="form-content">
-            <form name="callback-form" id="form1" action="#" method="post">
+            <form name="callback-form" id="form1">
                 <h4>Обратный звонок</h4>
                 <input type="hidden" name="form_name" value=" Обратный звонок">
                 <!--  <input type="hidden" name="club" value="<?=$_GET['club-name']?>"> -->
-                <p class="input-text"><input name="name" type="text" required placeholder="Ваше имя..."></p>
+                <p class="input-text"><input name="name" class="form_name" type="text" required placeholder="Ваше имя..."></p>
                 <p class="input-text"><input type="tel" name="phone" id="callback_form1-phone" required
-                                             placeholder="Ваш номер телефона..."></p>
+                    class="form_phone" placeholder="Ваш номер телефона..."></p>
                 <p class="personal-data">
-                    <input type="checkbox" required id="check"><label for="check">Я согласен на обработку <br>персональных
+                    <input type="checkbox" id="check"><label for="check">Я согласен на обработку <br>персональных
                     данных</label>
 
                 </p>
@@ -562,14 +568,14 @@
             <img src="images/close-icon.png" alt="close" class="close_icon">
         </div>
         <div class="form-content">
-            <form name="free-visit-form" id="form2" action="#" method="post">
+            <form name="free-visit-form" id="form2">
                 <h4>Записаться на визит</h4>
                 <input type="hidden" name="form_name" value=" Записаться на визит">
-                <p class="input-text"><input name="name" type="text" required placeholder="Ваше имя..."></p>
+                <p class="input-text"><input name="name" class="form_name" type="text" required placeholder="Ваше имя..."></p>
                 <p class="input-text"><input type="tel" name="phone" id="callback_form2-phone" required
-                                             placeholder="Ваш номер телефона..."></p>
+                    class="form_phone" placeholder="Ваш номер телефона..."></p>
                 <p class="personal-data">
-                    <input type="checkbox" required id="check2"><label for="check2">Я согласен на обработку <br>персональных
+                    <input type="checkbox" id="check2"><label for="check2">Я согласен на обработку <br>персональных
                     данных</label>
 
                 </p>
@@ -594,5 +600,6 @@
     </div>
 </div>
 
+<script src="dist/main.js"></script>
 </body>
 </html>

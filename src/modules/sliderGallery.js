@@ -91,17 +91,17 @@ const showDots = () => {
     const dotsContainer = document.querySelector('.slider-dots-container'),
         slide = document.querySelectorAll('.gallery-slide');
 
-    // for (let i = 0; i < slide.length; i++) {
-    //     const dot = document.createElement('li');
-    //     dot.classList.add('slider-dots');
-    //     dotsContainer.append(dot);
-    // }
-    for (let i = slide.length -1; i >= 0; i--) {
+    for (let i = 0; i < slide.length; i++) {
         const dot = document.createElement('li');
         dot.classList.add('slider-dots');
-        console.log(dot);
         dotsContainer.append(dot);
     }
+    // for (let i = slide.length -1; i >= 0; i--) {
+    //     const dot = document.createElement('li');
+    //     dot.classList.add('slider-dots');
+    //     console.log(dot);
+    //     dotsContainer.append(dot);
+    // }
 
     const firstDot = document.querySelectorAll('.slider-dots');
     console.log(firstDot);

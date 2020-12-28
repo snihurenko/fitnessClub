@@ -98,10 +98,6 @@ const sendForm = () => {
         const form1Check = document.getElementById('check');
         const form2Check = document.getElementById('check2');
         const cardCheck = document.getElementById('card_check');
-        // const footerClub1 = document.getElementById('footer_leto_mozaika').checked;
-        // const footerClub2 = document.getElementById('footer_leto_schelkovo').checked;
-        // console.log(footerClub1);
-        //&& (footerClub1 || footerClub2)
 
         if (target.matches('#form1') && form1Check.checked
             || target.matches('#form2') && form2Check.checked 
