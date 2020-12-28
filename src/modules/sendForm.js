@@ -111,11 +111,16 @@ const sendForm = () => {
             }
             getDataForm(target)
         } else {
+            const message = document.querySelector('#dataShare');
+            if (message) {
+                message.parentNode.removeChild(message);
+            }
             const statusMessage = document.createElement('div');
             statusMessage.classList.add('statusMessage');
             statusMessage.id = 'dataShare';
             statusMessage.style.color = 'red';
             statusMessage.textContent = dataShareApproveMessage;
+
             target.appendChild(statusMessage);
         }
     });
@@ -139,10 +144,3 @@ const sendForm = () => {
 };
 
 export default sendForm;
-
-//#footer_form 
-//#form1 
-//#form2
-//#banner-form
-//#card_order
-

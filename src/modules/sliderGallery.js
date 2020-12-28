@@ -3,7 +3,7 @@ const sliderGallery = () => {
         dot = document.querySelectorAll('.slider-dots'),
         slider = document.querySelector('.gallery-slider');
 
-    let currentSlide = 0,
+    let currentSlide = slide.length - 1,
         interval;
 
     const prevSlide = (elem, index, strClass) => {
@@ -20,10 +20,6 @@ const sliderGallery = () => {
         if (currentSlide <= slide.length - (slide.length + 1)) {
             currentSlide = slide.length -1;
         }
-        // currentSlide++;
-        // if (currentSlide >= slide.length) {
-        //     currentSlide = 0;
-        // }
         nextSlide(slide, currentSlide, 'gallery-slide-active');
         nextSlide(dot, currentSlide, 'gallery-dot-active');
     };
@@ -96,17 +92,10 @@ const showDots = () => {
         dot.classList.add('slider-dots');
         dotsContainer.append(dot);
     }
-    // for (let i = slide.length -1; i >= 0; i--) {
-    //     const dot = document.createElement('li');
-    //     dot.classList.add('slider-dots');
-    //     console.log(dot);
-    //     dotsContainer.append(dot);
-    // }
 
+    slide[slide.length - 1].classList.add('gallery-slide-active');
     const firstDot = document.querySelectorAll('.slider-dots');
-    console.log(firstDot);
-    //firstDot[firstDot.length - 1].classList.add('gallery-dot-active');
-    firstDot[0].classList.add('gallery-dot-active');
+    firstDot[firstDot.length - 1].classList.add('gallery-dot-active');
 };
 
 export { sliderGallery, showDots };
