@@ -34,6 +34,7 @@ const burgerMenu = () => {
             btn.classList.remove('hidden-large');
         } else if (window.innerWidth > 768){
             btn.classList.add('hidden-large');
+            topMenu.classList.remove('menu-fix');
         }
     });
 

@@ -8,7 +8,6 @@ import burgerMenu from './modules/burgerMenu';
 import sliderMainPage from './modules/sliderMainPage';
 import sliderServices from './modules/sliderServices';
 import { sliderGallery, showDots } from './modules/sliderGallery';
-//import { slider, showDots } from './modules/slider';
 import calculator from './modules/calculator';
 import sendForm from './modules/sendForm';
 import maskPhone from './modules/maskPhone';
@@ -25,7 +24,6 @@ sliderMainPage();
 sliderServices();
 showDots();
 sliderGallery();
-//slider();
 
 calculator();
 sendForm();
