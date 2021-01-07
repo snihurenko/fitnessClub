@@ -9,6 +9,7 @@ const sliderServices = () => {
     slide.forEach(elem => {
         elem.style.flex = '0 0 25%';
         elem.style.margin = '0 auto';
+        console.log(22);
     });
 
     document.addEventListener('click', event => {
