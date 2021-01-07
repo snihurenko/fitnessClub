@@ -1537,12 +1537,7 @@ nav.popup-menu .close-menu-btn img {
 
 .services-slider {
     display: flex;
-    /* margin: 0 auto;
-    padding-left: 15px;
-    padding-right: 15px; */
     position: relative;
-    /* overflow: hidden; */
-    /* max-width: 90%; */
 }
 
 .services-slider .slide {
@@ -1577,7 +1572,6 @@ nav.popup-menu .close-menu-btn img {
 #services .wrapper{
     position: relative;
     overflow: hidden;
-    
 }
 
 #services .slider-arrow {
