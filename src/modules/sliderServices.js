@@ -1,4 +1,3 @@
-//import { EventEmitter } from "events";
 
 const sliderServices = () => {
     const slider = document.querySelector('.services-slider'),
@@ -8,8 +7,8 @@ const sliderServices = () => {
         slidesToShow = 4;
 
     slide.forEach(elem => {
-        //elem.style.flex = `0 0 ${Math.floor(100/slidesToShow)}%;`
         elem.style.flex = '0 0 25%';
+        elem.style.margin = '0 auto';
     });
 
     document.addEventListener('click', event => {
